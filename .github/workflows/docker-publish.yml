@@ -29,8 +29,8 @@ jobs:
       
       - name: Get version
         run: |
-          file="./main.go"
-          value=$(grep version ${file} | cut -d'"' -f2)
+          file="./version"
+          value=$(grep version ${file} | cut -d' ' -f3)
           echo "app_version=$value" >> $GITHUB_ENV
           echo ${{ env.app_version }}
 
