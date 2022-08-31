@@ -12,8 +12,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-dsf callcenter
-icm monitoring leverkusen
 
 jobs:
   build-and-push-docker-image:
