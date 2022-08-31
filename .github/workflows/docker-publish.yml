@@ -36,9 +36,9 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4.0.1
         with:
-          images: itsmetommy/hello-github-actions
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
               type=ref,event=branch
               type=sha
@@ -55,3 +55,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+
