@@ -40,12 +40,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v3
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.app_version }}
-          labels: ${{ steps.meta.outputs.labels }}
+          push: ${{ github.ref == 'refs/heads/main' }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/golang-test:${{ env.app_version }}
 
 
