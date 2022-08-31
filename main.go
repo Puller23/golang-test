@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+var version = "0.0.1"
+
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, WebServer is listening on 8080")

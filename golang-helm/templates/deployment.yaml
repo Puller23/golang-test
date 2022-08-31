@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: golang-helm
+  name: golang-helm
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: golang-helm
+  template:
+    metadata:
+      labels:
+        app: golang-helm
+    spec:
+      containers:
+        - image: puller23/golang-test:v0.0.1
+          imagePullPolicy: IfNotPresent
+          name: golang-test
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "512Mi"
+          ports:
+            - containerPort: 8080
+              name: app-port
