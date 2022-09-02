@@ -46,6 +46,8 @@ jobs:
         with:
           context: .
           push: ${{ github.ref == 'refs/heads/main' }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/golang-test:${{ env.app_version }}
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/golang-test:${{ env.app_version }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/golang-test:latest
 
 
