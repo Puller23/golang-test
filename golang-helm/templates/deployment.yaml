@@ -15,7 +15,7 @@ spec:
         app: golang-helm
     spec:
       containers:
-        - image: puller23/golang-test:v0.0.1
+        - image: puller23/golang-test:0.0.3
           imagePullPolicy: IfNotPresent
           name: golang-test
           resources:
